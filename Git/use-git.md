@@ -93,3 +93,15 @@ git push origin -u main
 ## **有用的链接**
 
 [**Git Pro**](https://git-scm.com/book/en/v2) : 就是官方的电子书，遇到问题还是复制粘贴错误到网上吧。
+
+
+---
+
+无法上传至**Github**
+
+令牌
+
+```git
+git remote set-url origin https://<Token>@github.com/xxx.git
+```
+
