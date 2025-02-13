@@ -1,0 +1,128 @@
+\documentclass{report}
+\usepackage[utf8]{inputenc}
+\usepackage{ctex}
+\usepackage{lipsum}
+\usepackage[hooks]{tcolorbox}
+\usepackage{hyperref}
+\hypersetup {
+    colorlinks=true, linkcolor=cyan, filecolor=blue,
+    urlcolor=red, citecolor=green
+}
+\newtcbox{\Inline}[1][red]{
+	on line, arc = 0pt, outer arc = 0pt,
+    colback = #1!10!white, colframe = #1!50!black,
+    boxsep = 0pt, left = 1pt, right = 1pt, top = 2pt, bottom = 2pt,
+    boxrule = 0pt, bottomrule = 1pt, toprule = 1pt
+}
+
+\begin{document}
+
+\title{\fontsize{56pt}\selectfont{\textbf{简单 Git}}}
+\author{\fontsize{48pt}\selectfont{\href{https://gtihub.com/VHS-Survival-Manual/}{VHSS Manual - }}}
+\date{\today}
+
+\maketitle
+
+\newpage
+\section*{设置Git}
+
+\subsection*{下载 Git}
+
+在浏览器中打开 \textbf{Git} 的官方\href{https://git-scm.com/downloads}{下载链接},
+在里面有很详细的安装方式，这里不再介绍。
+
+\begin{tcolorbox}
+git --version
+\end{tcolorbox}
+
+查看它的版本，如果该步骤没有问题说明 \textbf{Git} 已经成功安装。
+
+\subsection*{添加 Github SSH密钥}
+
+首先创建你的\txetbf{SSH}密钥，打开你的终端（或命令提示符）：
+\begin{tcolorbox}
+ssh-keygen -t rsa -C "<Your email>"
+\end{tcolorbox}
+
+\Inline[yellow]{注意！这里必须确保你的系统开启了 \textbf{SSH} 功能！}
+
+回车该命令，然后一路回车，此方法对大多数系统有效。完成后继续输入下面的命令。
+打开你的家目录并进入 \Inline[green]{.ssh} 目录，然后复制密钥。
+
+\begin{tcolorbox}[title = {\textbf{Windows}}]
+cd .ssh\texttt{\char92}
+notepad id\_rsa.pub
+\end{tcolorbox}
+
+\begin{tcolorbox}[title = {\textbf{Linux or MacOS}}]
+cd \$HOME/.ssh/ \par
+cat id\_rsa.pub
+\end{tcolorbox}
+
+进入\textbf{\href{https://github.com/settings/}{Github 设置}}，
+找到 \Inline[blue]{“SSH and GPG keys”} 设置选项，然后添加新的密钥（请参考网页上的说明）。
+
+完成后再次打开终端并输入以下命令进行测试
+
+\begin{tcolorbox}
+ssh -T git@github.com
+\end{tcolorbox}
+
+如果显示通过则密钥设置成功，如果失败请复制错误原因自行搜索。
+
+\section*{开始工作}
+
+\subsection*{创建储存库}
+
+首先设置你的用户名以及邮箱：
+
+\begin{tcolorbox}
+git config --global user.name "<Your user name>"
+git config --global user.email "<Your email>"
+\end{tcolorbox}
+
+完成后进入你的\Inline[blue]{目录}，然后完成初始化操作。
+
+\begin{tcolorbox}
+git init
+\end{tcolorbox}
+
+如果你不想让\textbf{Git}的初始化库的名称为\texbf{master}，那就看看下面的命令以更改设置。
+这里我们假设你要将\texbf{master}改为\textbf{main}
+
+\begin{tcolorbox}
+git config --global init.defaultbranch main
+\end{tcolorbox}
+
+\subsection*{分支}
+
+创建一个名叫“dev” 的分支并切换
+
+\begin{tcolorbox}
+git checkout -b dev || git branch dev
+\end{tcolorbox}
+
+切换分支使用：
+
+\begin{tcolorbox}
+git checkout dev
+\end{tcolorbox}
+
+编写完成后，要把dev分支合并到主分支，先切换到主分支再merge：
+
+\begin{tcolorbox}
+git checkout master \\
+git merge dev
+\end{tcolorbox}
+
+最后删除已合并的分支请使用\Inline[green]{-d}，删除为合并过的请使用\Inline[green]{-D}参数
+
+\begin{tcolorbox}
+git branch -d dev \\
+git branch -D feature-vulcan
+\end{tcolorbox}
+
+\subsection*{本地提交}
+
+\end{document}
+
