@@ -17,5 +17,6 @@
 
 ## **更新**
 
-这个项目的更新会非常缓慢，如果你有想法请联系组织[邮箱](easonzhou0801@163.com)
+对于这个项目，由于我们的主要工作是编写[VHSS-Manual](https://github.com/VHS-Survival-Manual/VHSS-Manual)，所以这个项目的更新会非常缓慢，可能两三个月才会有大的变动，
+如果你对于该项目有想法请联系我们的组织[邮箱](easonzhou0801@163.com)
 
