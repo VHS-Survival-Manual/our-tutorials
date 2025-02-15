@@ -105,3 +105,9 @@ git push origin -u main
 git remote set-url origin https://<Token>@github.com/xxx.git
 ```
 
+## **提示你输入用户名和密码（TOKEN）**
+
+```git
+git config --global credential.helper store
+```
+
