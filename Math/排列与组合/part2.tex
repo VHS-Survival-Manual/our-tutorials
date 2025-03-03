@@ -1,0 +1,153 @@
+\section{\textbf{组合}}
+
+\subsection{组合问题}
+
+首先要我们要搞懂怎样判断哪些是组合问题、哪些是排列问题。还是以上面的\underline{水果篮子}为例。
+\begin{itemize}
+    \item 从五种水果中任选三种，分别送给\textbf{三}个不同的人，请问共有多少种方案？
+    \item 从五种水果中任选两种，然后送给\textbf{一}个人，共可组成多少种方案？
+    \item 从2，3，5，7，11~这5个数中任取两个数，共可组成多少个不同的分数？\sout{（不用水果了）}
+    \item 从2，3，5，7，11~这5个数中任取两个数，共可组成多少个不同的真分数？
+\end{itemize}
+
+\leftline{{\color{blue} {\large 解答}}}
+\begin{itemize}
+    \item 这是\textbf{排列问题}；$n$个水果分给$m$个人（$n \ne m$），因为每人所得的水果不一样。
+    \item 这是\textbf{组合问题}；水果都给一个人了，不管选取顺序如何结果都相同。%（$\textbf{A}_{5}^{1}$）
+    \item 这是\textbf{排列问题}；若选取到5和7，它们既可以组合成$\frac{7}{5}$也可以组合成$\frac{5}{7}$，很明显有两种组合方法（分母与分子的位置可以互换。没有唯一性）
+    \item 这是\textbf{组合问题}；还是跟上面一样选取到5和7，但要求是组合成\textbf{真分数\footnote{什么是真分数？！简单来说就是分母大于分子的分数}}，所以就只有一种组合。
+\end{itemize}
+
+\subsubsection{组合问题概括}
+从$n$个不同元素中任取$m(m \le n)$个元素，组成一组，叫做从$n$个不同元素中取出$m$个元素的一个\textbf{组合}。
+
+如果两个组合中的元素完全一致，无论元素选取的顺序如何，那么它们就是相同的组合。只有当两个组合中的元素不完全相同时，它们才是不同的组合。这里是不是很像我们在高一学习的\textbf{集合}，还记得集合中的概念吗？
+
+它们两个的共同点：
+\begin{enumerate}
+    \item \textbf{无序性的本质：} 组合问题中的元素选择（例如从5种水果中选2种）与集合中的元素存储，均不依赖顺序。例如集合中的$\{ a,~b\}$ 与 $\{ b,~a\}$ 它们的本质是相同的。
+    \item \textbf{唯一性的映射：} 集合要求元素互异，而组合问题中选取的元素也同样如此。
+\end{enumerate}
+研究从$n$个不同元素中任取$m(m \le n)$个元素的所有组合的个数，这类计数问题叫做\textbf{组合问题}。
+
+\subsection{组合数公式}
+
+排列数是在$m$个数中任选$n$个数，然后排列出它们的具体数量，而组合数则是求所有排列数的个数，也就是将每个单独的排列数中包含的个数相加。下面就是它的抽象概括。
+
+从$n$个不同元素中任取$m(m \le n)$个元素的所有组合的个数，叫做从$n$个不同元素任取$m$个元素的\textbf{组合数}，用符号$\textbf{C}_{n}^{m}$表示。
+
+一般地，求出$n$个不同元素中任取$m$个元素的排列组合数$\textbf{A}_{n}^m$，可以分两步完成。
+\begin{enumerate}
+    \item 求出从$n$个不同的元素中任取$m$个元素的组合数，有$\textbf{C}_n^{m}$个；
+    \item 对每一个组合中的$m$个元素进行全排列，其排列数均为$\textbf{A}_{m}^{m}$。
+\end{enumerate}
+根据分步计数原理，可得
+\begin{equation}
+    \textbf{A}_{m}^{n} = \textbf{C}_{n}^{m} \times \textbf{A}_{m}^{m}
+\end{equation}
+因此，组合数的计算公式为
+\begin{equation}
+    \textbf{C}_{n}^{m}=\frac{\textbf{A}_{n}^{m}}{\textbf{A}_{m}^{m}}=\frac{n(n-1)(n-2)\cdot{}\cdots{}\cdot{}(n-m+1)}{m!}=\frac{n!}{m!(n-m)!}
+\end{equation}
+其中$m \in \mathbf{N}$，$n \in \mathbf{N}_{+}$，且$m \le n$。这个公式就是\textbf{组合数公式}。
+
+下面再给出它们的一些性质
+
+\begin{equation}
+    \textbf{C}_{n}^{m} + \textbf{C}_{n}^{m+1} = \textbf{C}_{n+1}^{m+1}
+\end{equation}
+
+\subsubsection{组合数的不同写法}
+
+在研究离散数学\footnote{即组合数学}时我们常常会碰到一些不同的写法，如：$\binom{n}{m}$、$\textbf{P}(n,~k)$以及上面我们所用的$\textbf{C}_{n}^m$等，在我们继续深入理解组合数学时往往会因为这些符号的写法而感到迷惑，这里就列出它们之间的关系：
+\begin{equation*}
+    \textbf{C}_{n}^{r} = \binom{n}{r} = \textbf{P}(n,~r)
+\end{equation*}
+
+上面的等式则为组合数的三种写法，在众多高等数学教科书中更常用的是圆括号表达组合数$\binom{n}{m}$，而我们的笔记中所使用的则是苏式表达$\textbf{C}_{n}^m$。我们发现该等式的后面还有一个大写$\textbf{P}$的表达方式，实际上这是老旧的表达方式从本质上讲，$\textbf{P}(n,~r)$与$\textbf{C}_{n}^m$是一样的，$r$即为$m$，所以用$P$表达法\footnote{暂时找不到标准称呼}我们可以得到另一个等式：
+\begin{equation*}
+    \frac{\textbf{P}(n,~r)}{r!} = \textbf{A}_{n}^r
+\end{equation*}
+
+让我们把$r$换成$m$这样更好理解。我们来验证这个等式。
+\begin{equation*}
+    \begin{aligned}
+        &\textbf{A}_{n}^m = \textbf{C}_{m}^n \cdot \textbf{A}_{m}^{m} \\
+        &\textbf{A}_{n}^m = \textbf{P}(n,~m) \cdot m! \\
+        &\frac{\textbf{A}_{n}^m}{m!} = \textbf{P}(n,~m)
+    \end{aligned}
+\end{equation*}
+
+证毕！就是这样，在后面的"二项式定理\ref{sec:factorial}"中我们还会看到它。
+
+\subsection{组合数的两个性质}
+
+组合数有如下的两种性质。
+\begin{flushleft}{\color{blue} 性质一}\end{flushleft}
+\begin{equation}
+    \textbf{C}_{n}^{m}=\textbf{C}_{n}^{n-m}
+\end{equation}
+\begin{flushleft}
+	{\color{blue} 证明}
+\end{flushleft}
+\begin{equation*}
+    \begin{aligned}
+        &\textbf{C}_{n}^{m} = \frac{n!}{m!(n-m)!} \\
+        &\textbf{C}_{n}^{n-m} = \frac{n!}{(n-m)![n-(n-m)]!} = \frac{n!}{(n-m)!m!}
+    \end{aligned}
+\end{equation*}
+
+所以$\textbf{C}_{n}^{m}=\textbf{C}_{n}^{m-n}$。
+
+我们页可以这样理解，从$n$个不同的元素中取出$m$个元素组成一组后，剩下的$(n-m)$个元素自然也组成一组，即每取出$m$个元素都有唯一的$(n-m)$个元素之对应。所以，从$n$个不同的元素中取出$m$个元素的组合数一定与从$n$个不同的元素中取出$(n-m)$个元素的组合数相等。
+
+组合数的第二个性质
+\begin{flushleft}{\color{blue} 性质二}\end{flushleft}
+\begin{equation}
+    \textbf{C}_{n}^{m}+\textbf{C}_{n}^{m-1}=\textbf{C}_{n+1}^{m}
+\end{equation}
+\begin{flushleft}
+	{\color{blue} 证明}
+\end{flushleft}
+\begin{equation*}
+    \begin{aligned}
+        \textbf{C}_{n}^{m}+\textbf{C}_{n}^{m-1} &= \frac{n!}{m!(n-m)!}+\frac{n!}{(m-1)![n-(m-1)]!} \\
+        &= \frac{n!(n-m+1)}{m!(n-m+1)!}+\frac{n!m}{m!(n-m+1)!} \\
+        &= \frac{n![(n-m+1)+m]}{m!(n-m+1)!} \\
+        &= \frac{(n+m)!}{m!(n-m+1)!}
+        &= \textbf{C}_{n+1}^{m}
+    \end{aligned}
+\end{equation*}
+
+所以$\textbf{C}_{n}^{m}+\textbf{C}_{n}^{m-1}=\textbf{C}_{n+1}^{m}$。
+
+我们也可以直观地理解以上的性质，从$n$个苹果和1个菠萝中任取$m$个水果，可以用组合数$\textbf{C}_{n+1}^{m}$表示，也可以将其分为两类：一类分到的$m$个水果都是苹果，则有$\textbf{C}_{n}^{m}$种分法；另一类抽到的$m$个水果中有一个是菠萝，则有$\textbf{C}_{n}^{m-1}$，故共有$\textbf{C}_{n}^{m}+\textbf{C}_{n}^{m-1}$种取法，所以$\textbf{C}_{n}^{m}+\textbf{C}_{n}^{m-1}=\textbf{C}_{n+1}^{m}$。
+
+\subsubsection{例题}
+
+{\color{blue} 例一：}{请计算$\textbf{C}_{5}^{2}$}~与~$\textbf{C}_{9}^{3}$ 的值。
+
+{\color{blue} 解答：}$\textbf{C}_{5}^{2}=\frac{5\times{}4}{2!}=10$，$\textbf{C}_{6}^{3}=\frac{\textbf{A}_{6}^{3}}{\textbf{A}_{n}^{m}}=\frac{6\times{}5\times{}4}{3!} = 15$
+
+{\color{blue} 例二：}{请计算$\textbf{C}_{100}^{98}$}~与~$\textbf{C}_{9}^{3}+\textbf{C}_{9}^{4}$ 的值。
+
+{\color{blue} 解答：}
+\begin{equation*}
+    % 考虑使用表格
+    \begin{aligned}
+        \textbf{C}_{100}^{98} &= \textbf{C}_{100}^{2} \\
+        &=  \frac{\textbf{A}_{100}^{2}}{2!} \\
+        &= 4950
+    \end{aligned}
+\end{equation*}
+
+{\color{blue} 例三：}{请计算 $\textbf{C}_{7}^{2}+\textbf{C}_{7}^{3}+\textbf{C}_{8}^{4}+\textbf{C}_{9}^{5}+\textbf{C}_{10}^{6}$ 的值。
+
+{\color{blue} 解答：}
+\begin{equation*}
+    \begin{aligned}
+        \textbf{C}_{7}^{2}+\textbf{C}_{7}^{3}+\textbf{C}_{8}^{4}+\textbf{C}_{9}^{5}+\textbf{C}_{10}^{6} &= \frac{\textbf{A}_{7}^{2}}{2!}+\frac{\textbf{A}_{7}^{3}}{3!}+\frac{\textbf{A}_{8}^{4}}{4!}+\frac{\textbf{A}_{9}^{5}}{5!}+\frac{\textbf{A}_{10}^6}{6!}\\
+        &= \frac{42}{2}+\frac{215}{6}+\frac{1680}{24}+\frac{15120}{120}+\frac{151200}{720}\\
+        &= 462
+    \end{aligned}
+\end{equation*}

@@ -1,0 +1,87 @@
+\documentclass[a5paper]{article}
+\usepackage{inputenc}
+\usepackage[UTF8]{ctex}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage{ulem}
+\usepackage{geometry}
+\geometry{scale=0.85}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true, linkcolor=cyan,
+    filecolor=blue, urlcolor=red,
+    citecolor=green
+}
+
+% \title{\Huge \textbf{排列组合笔记}}
+% \author{\href{https://github.com/Zhou-Yi-Xuan}{easonzhou0801@163.com}}
+% \date{\today}
+
+\definecolor{BluePurple1}{RGB}{46, 47, 108}   % 深海蓝紫
+\definecolor{BluePurple2}{RGB}{139, 128, 172} % 迷雾灰紫
+\definecolor{BluePurple3}{RGB}{214, 203, 227} % 晨曦浅紫
+
+\begin{document}
+\thispagestyle{empty} % 隐藏页码
+
+\begin{tikzpicture}[remember picture, overlay]
+
+% 绘制三拼色背景（横向分割）
+\fill[BluePurple1] (current page.north west) rectangle ++(\paperwidth/3, -\paperheight);
+\fill[BluePurple2] ([xshift=\paperwidth/3] current page.north west) rectangle ++(\paperwidth/3, -\paperheight);
+\fill[BluePurple3] ([xshift=2*\paperwidth/3] current page.north west) rectangle ++(\paperwidth/3, -\paperheight);
+
+% ==== 白色标题背景（全宽度）====
+\path [fill=white] 
+  (current page.north west) ++(0,-9cm)  % 顶部下移3cm
+  rectangle 
+  (current page.north east) ++(0,-12cm); % 总高度3cm
+
+% ==== 标题 ====
+\node[align=center, text=BluePurple1, font=\sffamily\bfseries] 
+  at ([yshift=-4.5cm] current page.north) { % 居中于白色块
+    \scalebox{2.6}{\huge 排列组合笔记} \\[0.3cm]
+    \scalebox{1.5}{\Large \href{https://github.com/Zhou-Yi-Xuan}{easonzhou0801@163.com}}
+};
+
+\end{tikzpicture}
+
+\newpage
+\tableofcontents
+\newpage
+\section{引言}
+排列数与组合数是组合数学中的基石概念，它们在解决与选择、排序相关的问题时发挥着核心作用。排列数关注于从一组元素中选取特定数量的元素，并考虑这些元素的不同排列方式，体现了顺序的重要性。而组合数则侧重于选取元素的组合，即不考虑这些元素的排列顺序，只关心哪些元素被选中。这两个概念虽然紧密相关，但通过是否考虑顺序这一关键区别，它们适用于不同类型的数学问题和实际应用场景。在解决概率问题、组合优化、统计学乃至计算机科学中的算法设计时，排列数与组合数都是不可或缺的工具。
+
+排列数与组合数在实际生活中的应用广泛而深入，它们帮助我们理解和解决各种选择与排序问题。以下是一些具体的应用实例：
+\begin{enumerate}
+    \item \textbf{日程安排与时间管理：}在安排会议或活动时，需要考虑不同人员的参与顺序或组合，这涉及到排列的计算。例如，如果一个团队有5名成员，需要决定谁在会议中发言的顺序，这就是一个排列问题。
+    \item \textbf{密码学：}在设置密码时，用户可能会从特定的字符集中选择字符来创建密码，这既可以用排列（如果顺序重要）也可以用组合（如果顺序不重要，只关心哪些字符被选中）来计算可能的密码组合数量。
+    \item \textbf{体育比赛：}比如在足球联赛中，计算每两队之间进行比赛的场次，这是一个组合问题，因为比赛双方的顺序不影响比赛本身。而在决定比赛的出场顺序时，则涉及排列。
+    \item \textbf{购物搭配：}个人在选择衣物搭配时，会考虑有多少种不同的上衣和裤子可以组合，这是组合问题。如果还要考虑搭配的顺序，比如先穿哪件，那就是排列问题。
+    \item \textbf{抽奖与彩票：}彩票号码的选择，特别是那些要求顺序的彩票，使用排列来计算中奖的可能性；而不考虑顺序的彩票则使用组合。
+    \item\textbf{ 产品设计与市场策略：}企业设计产品套餐或营销组合时，会用到组合数来确定不同产品如何组合以满足不同消费者的需求，而排列则可能用于决定推广活动的顺序。
+    \item \textbf{计算机科学：}在算法设计中，排列和组合用于计算算法的复杂度，比如在算法的搜索空间中确定有效的路径或解决方案。
+    \item \textbf{统计学与概率论：}在分析事件发生的可能性时，排列和组合帮助计算不同情况下的概率，如抽样方法的分析。
+    \item \textbf{社交网络：}在社交网络中，计算可能的社交圈子或群组形成方式，以及信息传播的路径，都可能用到组合数。
+    \item \textbf{城市规划：}城市绿化或路灯布局时，考虑不同植物或路灯的排列组合，以达到最佳的视觉效果和功能布局。
+\end{enumerate}
+通过这些实例，我们可以看到排列数与组合数在日常生活决策、科学研究和工程设计中的重要性，它们使我们能够量化选择的多样性，优化决策过程，并理解复杂系统中的可能性。
+
+排列数在解决需要考虑顺序的问题时至关重要，如安排比赛顺序、密码生成等场景。\\
+
+\textbf{我承认上面的文本是~AI~生成的}，快谢谢\href{https://zhida.zhihu.com/}{知乎直答}！顺便提醒一下。在下面也会有很多使用~AI~生成、优化的段落，请大家不要介意，毕竟省时省力的方法没人不喜欢。
+
+% 计数原理与排列
+\include{part1}
+
+% 组合
+\include{part2}
+
+% 排列与组合的应用
+\include{part3}
+
+% 二项式
+% \include{binomial}
+
+\end{document}
