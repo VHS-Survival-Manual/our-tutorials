@@ -1,0 +1,118 @@
+\documentclass{ctexart}
+\ctexset{
+    section = {
+        titleformat = \raggedright,
+        name = {,、},
+        number = \chinese{section}
+    }
+}
+\usepackage[a4paper,top=2.54cm,bottom=2.54cm,left=3.18cm,right=3.18cm]{geometry}
+\usepackage{amsmath,amsfonts,amssymb,amsthm}
+\usepackage{tikz}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{enumitem}
+\usepackage{caption}
+
+\pagestyle{fancy}
+\fancyhf{}
+\cfoot{第 \thepage 页~~共 \pageref{LastPage} 页} % 可以使用 \pageref{LastPage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\labelenumii}{\Alph{enumii}.}
+
+\begin{document}
+
+%\vspace{1em}
+\begin{center}
+\textbf{\LARGE 中职数学基础模块}\par
+\vspace{8pt}
+\textbf{\Large 第二单元测试卷(一)}
+\end{center}
+
+\begin{center}
+\begin{tabular}{m{0.2\textwidth} m{0.3\textwidth} m{0.25\textwidth}}
+     主编：曹一铭 &排版：1805559573@qq.com &测试用时：45分钟
+\end{tabular}
+\end{center}
+\hrule height 1pt
+%\noindent
+%\rule{\textwidth}{1pt}
+
+\section{单项选择题（每小题6分，共20分）}
+\begin{enumerate}
+    \item 如果~$a<b$，且~$ac<bc$，那么~( ~~ ).
+    \vspace{-2em}
+    \begin{center}
+    \begin{tabular}{m{0.25\textwidth} m{0.25\textwidth} m{0.25\textwidth} m{0.25\textwidth}}
+         A. $c>0$ &B. $c<0$ &C. $c=0$ &D. $c\ge 0$
+    \end{tabular}
+    \end{center}
+    
+    \item 不等式$|~x+1~| < 3$的解集为~( ~~ ).
+    \vspace{-2em}
+    \begin{center}
+    \begin{tabular}{m{0.25\textwidth} m{0.25\textwidth} m{0.25\textwidth} m{0.25\textwidth}}
+         A. $[-2,~4]$ &B. $[-4,~2]$ &C. $(-2,~4)$ &D. $(-4,~2)$
+    \end{tabular}
+    \end{center}
+
+    \item 设~$x>0$，则$(x+1)^2$与$x^2 + x + 1$的大小关系是~( ~~ ).
+    \vspace{-2em}
+    \begin{center}
+    \begin{tabular}{m{0.25\textwidth} m{0.25\textwidth} m{0.25\textwidth} m{0.25\textwidth}}
+         A. $(x+1)^2 < x^2+x+1$ &B. $(x+1)^2 = x^2+x+1$ &C. $(x+1)^2 > x^2+x+1$ &D. 不能确定
+    \end{tabular}
+    \end{center}
+
+    \item 设集合 $A = (-4,~2), B=(0,~3)$，则$A \cup B =$~( ~~ ).
+    \vspace{-2em}
+    \begin{center}
+    \begin{tabular}{m{0.25\textwidth} m{0.25\textwidth} m{0.25\textwidth} m{0.25\textwidth}}
+         A. $(-4,~3)$ &B. $(0,~2)$ &C. $(-4,~0)$ &D. $(2,~3)$
+    \end{tabular}
+    \end{center}
+
+\end{enumerate}
+
+\section{填空题（共20分，每题5分）}
+
+    \begin{enumerate}%\setcounter{enumi}{12}
+        \item 若 $a>b$，则$a-6$ \underline{~~~~~~} $b-6$.~(填“<”~“>”~“=”)
+        
+        \item 集合 $\{ x~|~-2\ge x\ge8 \}$ 用区间表示为 \underline{~~~~~~}.
+        
+        \item 不等式 $(x+2)(x-1) < 0$ 的解集为 \underline{~~~~~~}.
+
+        \item 不等式 $3~|~x~|~ -2 \ge 4$
+
+        \item 设全集 $U = \mathbb{\textbf{R}} $，集合 $A = (-\infty,~2)$，则 $\complement_\textbf{u}A =$ \underline{~~~~~~}.
+
+    \end{enumerate}
+
+\section{解答题（第一题12分，第二、三题各14分，共40分）}
+
+	\begin{enumerate}%\setcounter{enumi}{16}
+
+\item 解不等式组 $\begin{cases}~~|~3-2x~|>1~,\\ ~~\cfrac{x-3}{2} \le \cfrac{-1-x}{3}~.\end{cases}$
+  
+\vspace{1.5cm}
+\newpage
+
+\item  已知二次函数 $y = x^2 - 2x -8$，当 $y < 0$时，求 $x$ 的取值范围.
+
+\vspace{3cm}
+
+\item 用长为~8m~的篱笆围一个花坛，其中一面靠墙，如图所示，花坛的宽为~$x$m~，问当 $x$ 取多少时，可能满足花坛的面积不小于~$6m^2$.
+
+\begin{figure}[h]
+     \flushright
+     \includegraphics[width=0.30\textwidth]{draw.pdf}
+     \captionsetup{justification=raggedleft,singlelinecheck=false}
+     \caption{\small{第三题图}}
+\end{figure}
+
+\end{enumerate}
+
+\end{document}
