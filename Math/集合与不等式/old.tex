@@ -1,0 +1,146 @@
+\documentclass[a5paper]{article}
+%\usepackage{inputenc}
+\usepackage[UTF8]{ctex}
+\usepackage{amsmath, amssymb}
+\usepackage{tcolorbox,xcolor}
+\usepackage{tikz}
+\usepackage{ulem}
+\usepackage{caption,booktabs}
+\usepackage{geometry}
+\geometry{scale=0.85}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true, linkcolor=cyan,
+    filecolor=blue, urlcolor=red,
+    citecolor=green
+}
+
+\definecolor{BluePurple1}{RGB}{46, 47, 108}   % 深海蓝紫
+\definecolor{BluePurple2}{RGB}{139, 128, 172} % 迷雾灰紫
+\definecolor{BluePurple3}{RGB}{214, 203, 227} % 晨曦浅紫
+
+%\title{\Huge \textbf{集合与不等式笔记}}
+%\author{\href{https://github.com/Zhou-Yi-Xuan}{easonzhou0801@163.com}}
+%\date{\today}
+
+\begin{document}
+%\maketitle
+
+\thispagestyle{empty} % 隐藏页码
+
+\begin{tikzpicture}[remember picture, overlay]
+% 绘制三拼色背景
+\fill[BluePurple1] (current page.north west) rectangle ++(\paperwidth/3, -\paperheight);
+\fill[BluePurple2] ([xshift=\paperwidth/3] current page.north west) rectangle ++(\paperwidth/3, -\paperheight);
+\fill[BluePurple3] ([xshift=2*\paperwidth/3] current page.north west) rectangle ++(\paperwidth/3, -\paperheight);
+
+% ==== 白色标题背景（全宽度）====
+\path [fill=white] 
+  (current page.north west) ++(0,-7cm)  % 顶部下移3cm
+  rectangle 
+  (current page.north east) ++(0,-10cm); % 总高度3cm
+
+% ==== 标题 ====
+\node[align=center, text=BluePurple1, font=\sffamily\bfseries] 
+  at ([yshift=-4.5cm] current page.north) { % 居中于白色块
+    \scalebox{1.7}{\huge 集合与不等式笔记} \\[0.3cm]
+    \scalebox{1.1}{\Large \href{https://github.com/Zhou-Yi-Xuan}{easonzhou0801@163.com}}
+};
+
+% 添加作者信息（保持原位置）
+%\node[align=center, text=white, font=\sffamily] at ([yshift=-10cm] current page.center) {%
+%    \large 王小明\ 陈晓华 \\[0.3cm]
+%    \small 清华大学量子信息研究院 \\[0.2cm]
+%    \footnotesize \today
+%};
+
+\end{tikzpicture}
+\newpage
+\tableofcontents
+
+\section{\textbf{引言}}
+
+在数学的浩瀚星河中，“集合”与“不等式”如同两把钥匙，一者以简洁的逻辑框架定义万物归属，一者以严谨的符号语言丈量数量边界。集合是数学的基石，从数系的延展到空间的抽象，它以包容的姿态构建起数学世界的秩序；不等式则是探索的工具，无论是函数的变化趋势、方程的解集范围，还是现实问题的优化极限，它用符号的张力划出精确的领域。这本笔记凝结了高一阶段对这两个核心概念的思考与沉淀——从集合的并、交、补运算中领悟逻辑的纯粹，从不等式的变形、求解中体会数学的锋芒。愿这些文字成为你推开数学之门的扉页，在符号与思维的碰撞中，看见理性之美。\footnote{快谢谢\href{https://chat.deepseek.com/}{Deep seek}}
+
+\section{\textbf{集合在数学中的主要应用}}
+
+\subsection*{构建数学对象}
+\begin{itemize}
+    \item \textbf{数系定义}：自然数（$\mathbb{N}$）、整数（$\mathbb{Z}$）、有理数（$\mathbb{Q}$）、实数（$\mathbb{R}$）、复数（$\mathbb{C}$）等均可视为集合。
+    \item \textbf{代数结构}：群、环、域等抽象代数结构均基于集合定义。例如，群是一个集合配上一个满足特定公理的运算。
+    \item \textbf{几何图形}：点、线、面等几何对象可视为点的集合（如圆是到定点距离相等的点的集合）。
+\end{itemize}
+
+\subsection*{描述关系与运算}
+\begin{itemize}
+    \item \textbf{函数与映射}：函数是集合间的对应关系，定义为两个集合的笛卡尔积的子集。
+    \item \textbf{集合运算}：并集（$\cup$）、交集（$\cap$）、补集（$A^c$）等操作广泛应用于逻辑推理、概率论和数据分析。
+\end{itemize}
+
+\subsection*{概率与统计}
+\begin{itemize}
+    \item \textbf{样本空间}：概率论中所有可能结果的集合（如掷骰子的结果集合 $\{1,2,3,4,5,6\}$）。
+    \item \textbf{事件}：样本空间的子集，例如“掷出偶数”对应集合 $\{2,4,6\}$。
+\end{itemize}
+
+\subsection*{数学分析}
+\begin{itemize}
+    \item \textbf{开集与闭集}：拓扑学中通过集合定义空间的性质（如开集用于描述连续性）。
+    \item \textbf{测度论}：集合的“大小”通过测度（如长度、面积）量化，例如积分理论中的可测集。
+\end{itemize}
+
+\subsection*{逻辑与公理化基础}
+\begin{itemize}
+    \item \textbf{公理化集合论}（如ZFC系统）：为数学提供严谨的基础，所有数学对象均可归结为集合。
+    \item \textbf{悖论避免}：通过公理（如正则公理）限制集合的定义，避免罗素悖论等问题。
+\end{itemize}
+
+\subsection*{计算机科学}
+\begin{itemize}
+    \item \textbf{数据结构}：集合是编程中哈希表、树等结构的原型。
+    \item \textbf{数据库操作}：SQL中的UNION、INTERSECT等直接对应集合运算。
+\end{itemize}
+
+\textbf{集合是数学的基础工具，用于定义对象、描述关系、构建逻辑框架，并广泛应用于各数学分支及计算机科学。}
+
+\section{\textbf{集合}}
+
+\subsection{集合元素与常见集合}
+
+由一些确定的对象组成的整体就称为\textbf{集合}（简称\textbf{集}），通常用大写字母表示；集合中的每个确定的对象叫做这个集合的\textbf{元素}，通常用小写字母表示。
+
+如果$a$是集合\textbf{A}中的元素，就说\textbf{$a$ 属于 A}，记作$a \in A$，读作“a 属于 A”；如果$b$不是集合$A$中的元素，就说\textbf{$b$不属于A}，记作$b\notin A$，读作“b不属于A”。
+
+\begin{tcolorbox}[colframe = blue!20, title = {\color{red} 提示}]
+    给定一个集合，任何一个对象是否属于这个集合就很明确了。也就是说，给定一个集合，就给定了一个明确的条件，据此可以判断任何一个对象是否属于这个集合。这就说明集合的元素具有\textbf{确定性}。
+
+    例如，“大于10的偶数”可以组成一个集合，将其记为集合$B$，那么集合$B$中的元素就是~12,14,16,18,20,$\cdots$~，则$16 \in B$，$17 \notin B$，$8 \notin B$。
+
+    另外，一个给定集合中的元素不能重复，且再排序上没有顺序要求。也就是说，集合的元素具有\textbf{互异性}和\textbf{无序性}。
+\end{tcolorbox}
+
+如果有一个集合，它只包含26位字母（即 a \~ z），是有限个。像这样元素有限的集合，称为\textbf{有限集}。
+
+但如果一个集合它包含$2x-7 \le 0$的所有实数解，集合中元素的个数为无限个，称为\textbf{无限集}。
+
+还有一种特殊的集合，我们会在后面经常见到，这种集合它不包含任何元素，这样的集合被称为\textbf{空集}，记作$\oslash$。例如，方程$x^2 +1=0$的实数解组成的集合，它在实数范围内无解，所以形如此类的集合，即为空集。
+
+\begin{table}[hb]
+	\centering
+	\begin{tabular}{|ll|l|}
+        \toprule
+		自然数集 & & $N$ \\
+	    正整数集 & & $N^*$ 或 $N_+$ \\
+		整数集 & & $Z$ \\
+		有理数集 & & $Q$ \\
+		实数集 & & $R$ \\ \bottomrule
+	\end{tabular} \caption*{}
+\end{table}
+
+在集合的表示方法中，常用的有列举法和描述法。列举法，把集合的元素一一列举出来，写在大括号内；描述法，把集合中所有元素的共同特征描述出来。
+
+我们把方程或不等式的所有实数解组成的集合叫作该方程或不等式的\textbf{解集}。由于数轴上的点与实数是一一对应的，所以实数也可以用数轴上的点来表示。
+
+\subsection{集合之间的关系}
+
+\end{document}

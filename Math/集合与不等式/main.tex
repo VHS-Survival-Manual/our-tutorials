@@ -1,0 +1,65 @@
+\documentclass[a5paper]{article}
+\usepackage{inputenc}
+\usepackage[UTF8]{ctex}
+\usepackage{amsmath, amssymb}
+\usepackage{tcolorbox,xcolor}
+\usepackage{tikz}
+\usepackage{ulem}
+\usepackage{caption,booktabs}
+\usepackage{geometry}
+\geometry{scale=0.85}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true, linkcolor=cyan,
+    filecolor=blue, urlcolor=red,
+    citecolor=green
+}
+
+\definecolor{BluePurple1}{RGB}{46, 47, 108}
+\definecolor{BluePurple2}{RGB}{139, 128, 172}
+\definecolor{BluePurple3}{RGB}{214, 203, 227}
+
+\begin{document}
+%\maketitle
+
+\thispagestyle{empty} % 隐藏页码
+
+\begin{tikzpicture}[remember picture, overlay]
+% 绘制三拼色背景
+\fill[BluePurple1] (current page.north west) rectangle ++(\paperwidth/3, -\paperheight);
+\fill[BluePurple2] ([xshift=\paperwidth/3] current page.north west) rectangle ++(\paperwidth/3, -\paperheight);
+\fill[BluePurple3] ([xshift=2*\paperwidth/3] current page.north west) rectangle ++(\paperwidth/3, -\paperheight);
+
+% ==== 白色标题背景（全宽度）====
+\path [fill=white] 
+  (current page.north west) ++(0,-7cm)  % 顶部下移3cm
+  rectangle 
+  (current page.north east) ++(0,-10cm); % 总高度3cm
+
+% ==== 标题 ====
+\node[align=center, text=BluePurple1, font=\sffamily\bfseries] 
+  at ([yshift=-4.5cm] current page.north) { % 居中于白色块
+    \scalebox{1.7}{\huge 集合与不等式笔记} \\[0.3cm]
+    \scalebox{1.1}{\Large \href{https://github.com/Zhou-Yi-Xuan}{easonzhou0801@163.com}}
+};
+\end{tikzpicture}
+
+\newpage
+\tableofcontents
+\setcounter{page}{1}
+
+\newpage
+\section{\textbf{引言}}
+
+在数学的浩瀚星河中，“集合”与“不等式”如同两把钥匙，一者以简洁的逻辑框架定义万物归属，一者以严谨的符号语言丈量数量边界。集合是数学的基石，从数系的延展到空间的抽象，它以包容的姿态构建起数学世界的秩序；不等式则是探索的工具，无论是函数的变化趋势、方程的解集范围，还是现实问题的优化极限，它用符号的张力划出精确的领域。这本笔记凝结了高一阶段对这两个核心概念的思考与沉淀——从集合的并、交、补运算中领悟逻辑的纯粹，从不等式的变形、求解中体会数学的锋芒。愿这些文字成为你推开数学之门的扉页，在符号与思维的碰撞中，看见理性之美。\footnote{快谢谢\href{https://chat.deepseek.com/}{Deep seek}}
+
+% 集合
+\include{part1}
+
+% 不等式
+\include{part2}
+
+% 高观点下的集合与不等式
+% \include{far}
+
+\end{document}

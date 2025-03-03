@@ -1,0 +1,106 @@
+\section{\textbf{集合}}
+
+\subsection{集合元素与常见集合}
+
+一般地,把一些确定的, 可以区分的事物放在一起构成的整体称为集合, 简称集。通常用大写字母表示；集合中的每个确定的对象叫做这个集合的\textbf{元素}，通常用小写字母表示。
+
+如果$a$是集合\textbf{A}中的元素，就说\textbf{$a$ 属于 A}，记作$a \in A$，读作“a 属于 A”；如果$b$不是集合$A$中的元素，就说\textbf{$b$不属于A}，记作$b\notin A$，读作“b不属于A”。
+
+\begin{tcolorbox}[colframe = blue!20, title = {\color{red} 提示}]
+    给定一个集合，任何一个对象是否属于这个集合就很明确了。也就是说，给定一个集合，就给定了一个明确的条件，据此可以判断任何一个对象是否属于这个集合。这就说明集合的元素具有\textbf{确定性}。
+
+    例如，“大于10的偶数”可以组成一个集合，将其记为集合$B$，那么集合$B$中的元素就是~12,14,16,18,20,$\cdots$~，则$16 \in B$，$17 \notin B$，$8 \notin B$。
+
+    另外，一个给定集合中的元素不能重复，且再排序上没有顺序要求。也就是说，集合的元素具有\textbf{互异性}和\textbf{无序性}。
+\end{tcolorbox}
+
+如果有一个集合，它只包含26位字母（即 a \~ z），是有限个。像这样元素有限的集合，称为\textbf{有限集}。
+
+但如果一个集合它包含$2x-7 \le 0$的所有实数解，集合中元素的个数为无限个，称为\textbf{无限集}。
+
+还有一种特殊的集合，我们会在后面经常见到，这种集合它不包含任何元素，这样的集合被称为\textbf{空集}，记作$\oslash$。例如，方程$x^2 +1=0$的实数解组成的集合，它在实数范围内无解，所以形如此类的集合，即为空集。
+
+在集合的表示方法中，常用的有列举法和描述法。列举法，把集合的元素一一列举出来，写在大括号内；描述法，把集合中所有元素的共同特征描述出来。
+
+我们把方程或不等式的所有实数解组成的集合叫作该方程或不等式的\textbf{解集}。由于数轴上的点与实数是一一对应的，所以实数也可以用数轴上的点来表示。
+
+下面是几种特殊集合的表示符号：
+
+$\mathbb{N}$ \text{— 自然数集合（包括0）}
+
+$\mathbb{Z}$ — 整数集合，$\mathbb{Z^+}$ — 正整数集合，$\mathbb{Z^-}$ — 负整数集合
+
+$\mathbb{Q}$ — 有理数集合，$\mathbb{Q^+}$ — 正有理数集合，$\mathbb{Q^-}$ — 负理数集
+
+$\mathbb{R}$ — 实数集合，$\mathbb{R^+}$ — 正实数集合，$\mathbb{R^-}$ — 负实数集合
+
+$\mathbb{C}$ — 复数集合，等等
+
+集合有很多表示方法，这里介绍几种常用的表示方法：
+
+\textbf{列举法（或列元素法）}把集合中的全部元素一一列举出来, 元素之间用逗号“, ”隔开, 并把它们用花括号“\{~\}”括起来. 例如：$A=\{1,2,3,4,5\}$
+
+列元素法一般适合表示元素个数较少的集合. 当集合中元素个数较多时, 如果组成该集合的元素有一定的规律, 也可采用此方法, 此时, 列出部分元素, 当看出组成该集合的其他元素的规律时, 其余元素用“$\cdots$”来表示. 例如：$B=\{1,2,\cdots{},99\}$
+
+此方法也可以表示含有无穷多个元素且元素有一定的规律的集合.
+
+\textbf{描述法}
+
+\textbf{谓词表示法}
+
+\subsection{集合之间的关系}
+
+\subsubsection{子集与真子集}
+
+\newpage
+\subsection{集合之间的运算}
+
+\subsubsection{交集与并集}
+
+原本这里是两个单独的小结，不过我还是把它们放在了一起，这两个概念还是放在一起更容易理解。
+
+设$A,~B$是两个集合，由既属于集合$A$又属于集合$B$的元素所构成的集合称为$A$与$B$的\textbf{交集}。记作$A\cap{}B$，读作$A$交$B$。即$A\cap{}B=\{x \in A \text{且} x \in B\}$，其主要性质：
+
+$A\cap{}B=B\cap{}A;~A\cup{}A=A;~A\cap{}\oslash = \oslash$
+
+\begin{figure}[ht]
+     \flushright
+     \includegraphics[width=0.30\textwidth]{image/set_1.pdf}
+     \captionsetup{justification=raggedleft,singlelinecheck=false}
+     \caption{\small{交集}}
+\end{figure}
+
+设$A,~B$是两个集合，由所有属于集合$A$或者属于集合$B$的元素所构成的集合称为$A$与$B$的\textbf{并集}。记作$A\cup{}B$，读作$A$并$B$。即$A\cup{}B=\{x \in A \text{或} x \in B\}$，其主要性质：
+
+$A\cup{}B=B\cup{}A;~A\cup{}A=A;~A\cup{}\oslash = A$
+
+\begin{figure}[ht]
+     \flushright
+     \includegraphics[width=0.30\textwidth]{image/union_set.pdf}
+     \captionsetup{justification=raggedleft,singlelinecheck=false}
+     \caption{\small{并集}}
+\end{figure}
+
+\subsubsection{差集}
+
+对于集合$A \text{与} B$，由集合$A$中不属于集合$B$的元素所组成的集合即为\textbf{差集}。记作$A \setminus B = \{x~|~x \in A \text{且} x \notin B\}$其主要性质：
+
+\begin{equation*}
+    \begin{aligned}
+        & A \setminus B \ne B \setminus A;~(A \setminus B)\setminus C \ne A \setminus (B \setminus C); \\
+        & ~A \setminus \oslash = A~\&~\oslash \setminus A = \oslash~\&~ A \setminus A = \oslash
+    \end{aligned}
+\end{equation*}
+
+再补充一条性质：若$U$为全集，则$A \setminus B = A \cap B^c (\complement_{U}B)$，其中$\complement_{U}B=U \setminus B$
+
+\subsubsection{全集与补集}
+
+一般地，如果一个集合含有我们研究问题中所涉及的所有元素，那么这个集合就称这个集合为全集，通常记为$U$或$I$。月有阴晴圆缺，一般地，设$U$为全集，
+且$A \subseteq U$由$U$中所有不属于$A$的元素组成的集合，称为集合$A$在$U$中的补集，记作$\complement_{U}A~\text{或者}~A^c~\text{再或者}~A'$\footnote{不过对于这种写法我很不推荐，$A'$的补集运算依赖全集$U'$，需明确上下文中的全集定义}，即$\complement_{U}A=\{x~|~x \in U,~\text{且}x \notin A\}$其主要性质：
+
+$A \cap \complement_{U}A = \oslash;~A \cup \complement_{U}A = U;~\complement_{U}(\complement_{U}A)=A$
+
+再来说明下关于补集符号的区别。首先是这种——$\complement_{U}A$，这种是最标准的补集符号被广泛应用于各大教材，也是我们在学习集时看见几率最大的符号，而~$A^c$~则是属于更高等的教材中所使用的
+
+\subsection{例题}
