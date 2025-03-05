@@ -1,0 +1,109 @@
+\documentclass[a5paper]{article}
+\usepackage{inputenc}
+\usepackage[UTF8]{ctex}
+\usepackage{amsmath, amssymb}
+\usepackage{tcolorbox,xcolor}
+\usepackage{tikz}
+\usepackage{caption,booktabs,ulem}
+\usepackage{geometry}
+\geometry{scale=0.85}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true, linkcolor=cyan,
+    filecolor=blue, urlcolor=red,
+    citecolor=green
+}
+
+\definecolor{BluePurple1}{RGB}{46, 47, 108}
+\definecolor{BluePurple2}{RGB}{139, 128, 172}
+\definecolor{BluePurple3}{RGB}{214, 203, 227}
+
+\begin{document}
+% \maketitle
+
+\begin{tikzpicture}[remember picture, overlay]
+% 绘制三拼色背景
+\fill[BluePurple1] (current page.north west) rectangle ++(\paperwidth/3, -\paperheight);
+\fill[BluePurple2] ([xshift=\paperwidth/3] current page.north west) rectangle ++(\paperwidth/3, -\paperheight);
+\fill[BluePurple3] ([xshift=2*\paperwidth/3] current page.north west) rectangle ++(\paperwidth/3, -\paperheight);
+
+% ==== 白色标题背景（全宽度）====
+\path [fill=white] 
+  (current page.north west) ++(0,-7cm)  % 顶部下移3cm
+  rectangle 
+  (current page.north east) ++(0,-10cm); % 总高度3cm
+
+% ==== 标题 ====
+\node[align=center, text=BluePurple1, font=\sffamily\bfseries] 
+  at ([yshift=-4.5cm] current page.north) { % 居中于白色块
+    \scalebox{2.4}{\huge 数列笔记} \\[0.3cm]
+    \scalebox{1.5}{\Large \href{https://github.com/Zhou-Yi-Xuan}{easonzhou0801@163.com}}
+};
+\end{tikzpicture}
+\thispagestyle{empty} % 隐藏页码
+\newpage
+
+%\tableofcontents
+%\setcounter{page}{1}
+
+\part{\textbf{引论}}
+
+数列，这数学中的一串璀璨明珠，自古以来便是探索秩序与模式的窗口。它以最朴素的形式——一连串数字，
+隐藏着无限的奥秘与变化，从等差的简洁到等比的韵律，乃至更复杂的递归序列，每一种数列都像是数学世界的一首诗，
+叙述着数与数之间的和谐与冲突。在数学的长河中，数列不仅是初等数学的基石，更是通往高等数学殿堂的桥梁，
+它在现代科学、工程、金融等领域中的应用无处不在，从计算复利到描述物理现象，其重要性不言而喻。
+通过研究数列的性质、求和、极限，我们不仅能够洞察数学的内在美，还能培养逻辑思维与抽象思考的能力，
+为解决实际问题提供强有力的工具。让我们一起踏上这段探索数列之美的旅程，揭开它背后的数学真理，
+感受数学世界的无限魅力。\footnote{来自~\href{https://chat.deepseek.com/}{deep seek}}
+
+什么是数列？假如我们有10个数字它们分别是：$1,~2, \cdots~ 9,~10$，把它们放在一个“集合”当中，
+简而言之数列就是按一定顺序排列的一列数，记作$\{a_n\}$，其中每个数称为数列的\textbf{项}，
+$a_n$表示第$n$项（通项）。上面我们所举的例子就是一个\textbf{有穷数列}，在这里我们就顺便引出后面的概念。
+根据数列中项数是否为有限值，可以将数列分为两类：若有限，例如 $1,~2,~3,~4$则称为
+\textbf{有穷数列（finite sequence）}；若无限，例如 $1,~2,~3,~4,~\cdots$ 则称为\textbf{无穷数列（infinite sequence）}。虽然有穷数列与无穷数列在项数上有显著差异，但它们之间的联系
+也十分紧密：就像前面的例子那样，有穷数列可以看作是无穷数列的前部分截取。因此，在研究规律时，
+有穷数列的许多特性也适用于无穷数列，反之亦然。在高中阶段，只研究有穷数列。
+\footnote{感谢~\href{https://wuli.wiki/online/HsSeFu.html}{小时百科}}
+
+将一些数按照一定的次序排列成一列，称为\textbf{数列（number sequence）}，通常记作：
+\begin{equation*}
+    a_1,~a_2,~a_3,~\cdots ,~a_n,~\cdots
+\end{equation*}
+一般记作：$\{a_n\}$，字母$n$可以替换为其他字母。其中$n$是自然数，数列中的每一个数
+被称为该数列的\textbf{项（term）}。
+
+\newpage
+我们再补充写关于项的概念：
+\begin{enumerate}
+    \item $a_1$ 被称为该数列的\textbf{首项（first term）}
+    \item $a_n$ 表示数列的第 $n$ 项，也被称为\textbf{通项（general term）}
+    \item 数列中包含项的个数称为\textbf{项数}。
+\end{enumerate}
+
+在有穷数列中，其最后一项通常被称为\textbf{末项（last term）}，这一项标志着数列的结束。
+如果从倒序的角度观察数列，首项和末项的位置相互调换。例如，$1,2,3,4$的末项是$4$，但如果倒序观察，
+则数列变为$4,3,2,1$，此时的末项变为原数列的首项$1$。这种倒序视角在研究数列特性时提供了一种新的方式，
+特别是在对称性或逆向推导等问题中具有独特的价值。无论是正序还是倒序，数列的规律依然保持不变，
+只是观察的顺序发生了变化。
+
+如果数列$a_n$的第$n$项$a_n$ 与$n$的关系可以用一个表达式为$a_n = f(n)$之间的关系可以用一个表达式
+表示为 ，那么这个表达式被称为该数列的\textbf{通项公式（general term formula）}。
+
+尽管数列的通项公式非常实用，但由于数列的离散特性，在推导和使用时必须特别关注
+\textbf{边界条件（boundary conditions）}，例如首项 $a_1$ 或末项 $a_n$ 等特定项，
+是否满足通项公式。如果通项公式无法涵盖所有项或忽略特定边界条件，就可能导致表达不完整或错误。
+相比之下，函数在许多场合下也需要考虑边界，但由于函数的连续性，边界问题通常表现为平滑的过渡，
+不需要过多关注离散点的特殊性。对于数列，只有确保通项公式对每一项都成立，才能准确描述数列的规律。
+
+不过关于上面那段话我们就不深入解答了，这个笔记只解决高中的数列问题，对于第三部分我们只是为了给有兴趣的同学所
+编写的拓展部分。
+
+
+
+\include{part-1}
+
+% \include{part-2}
+
+% \include{part-3}
+
+\end{document}
