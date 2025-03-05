@@ -1,5 +1,7 @@
 # **VHSS 教程**
 
+[![License](https://img.shields.io/npm/l/vuepress-theme-hope.svg?style=for-the-badge)](https://github.com/vuepress-theme-hope/vuepress-theme-hope/blob/main/LICENSE)
+
 ## **关于该教程**
 
 暂时留空
@@ -18,5 +20,3 @@
 有什么问题请直接联系邮箱
 
 _邮箱：easonzhou0801@163.com_
-
-[![License](https://img.shields.io/npm/l/vuepress-theme-hope.svg?style=for-the-badge)](https://github.com/vuepress-theme-hope/vuepress-theme-hope/blob/main/LICENSE)
