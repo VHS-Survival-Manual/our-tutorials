@@ -1,0 +1,135 @@
+\documentclass[a5paper]{article}
+\usepackage{inputenc}
+\usepackage[UTF8]{ctex}
+\usepackage{geometry}
+\geometry{scale=0.80}
+\usepackage{amsmath, amssymb}
+\pagestyle{empty}
+
+\title{}
+\author{}
+\date{}
+
+\begin{document}
+
+% \maketitle
+
+\begin{center}
+    \textbf{\LARGE 中职数学速记手册}
+    \vspace{5pt}
+\end{center}
+\hrule height 1pt
+
+\section{{\large \textbf{集合与逻辑}}}
+
+\leftline{\textbf{交集的性质}}
+\begin{align*}
+    & \text{(1)~} A \cap B = B \cap A \\
+    & \text{(2)~} \oslash \subseteq A \cap B \subseteq A ~~~ \oslash \subseteq A \cap B \subseteq B \\
+    & \text{(3)~} A \cap A = A ~~~ A \cap \oslash = A ~~~ A \cap U = U
+\end{align*}
+
+\leftline{\textbf{并集的性质}}
+\begin{align*}
+    & \text{(1)~} A \cup B = B \cup A \\
+    & \text{(2)~} \oslash \subseteq A \cap B \subseteq A \subseteq A ~~~ \oslash \subseteq A \cap B \subseteq B \subseteq A \\
+    & \text{(3)~} A \cap A = A ~~~ A \cup \oslash = A ~~~ A \cup U = U
+\end{align*}
+
+\leftline{\textbf{补集的性质}}
+\begin{align*}
+    & A \cup \complement_{U}A = U & A \cap \complement_{U}A = \oslash \\
+    & \complement_{U}\oslash = U & \complement_{U}(\complement_{U}A) = A
+\end{align*}
+
+\section{{\large \textbf{数列}}}
+
+\leftline{\textbf{数列的前$n$项和}}
+\begin{equation*}
+    \textbf{S}_n = a_1 + a_2 + a_3 + \cdots + a_n
+\end{equation*}
+\begin{center}
+	\begin{math}
+	    a_n =
+        \begin{cases}
+            \textbf{S}_1,~n = 1 \\
+            \textbf{S}_n - \textbf{S}_{n-1},~n \le 2 
+        \end{cases}
+    \end{math}
+\end{center}
+
+\leftline{\textbf{等差数列的通项公式}}
+\begin{equation*}
+    a_n = a_1 + (n-1)d ~~(n \in \mathbb{N}^*)
+\end{equation*}
+
+\leftline{\textbf{等差数列的前$n$项和公式}}
+\begin{equation*}
+    \textbf{S}_n = \frac{1}{2}n(a_1 + a_n) = na_1 + \frac{1}{2}n(n-1)d
+\end{equation*}
+
+\leftline{\textbf{等差数列的性质公式}}
+\begin{align*}
+    & \text{(1) 若} m+n = p+q \text{，则} a_m + a_n = a_p + a_q \\
+    & \text{(2)~} 2m = p+q \text{，则} 2a_m = a_p + a_q \\
+    & \text{(3)~} a_n - a_m = (n-m)q ~~(n>m)
+\end{align*}
+
+\leftline{\textbf{等比数列的通项公式}}
+\begin{equation*}
+    a_n = a_1 \cdot q^{n-1}
+\end{equation*}
+
+\leftline{\textbf{等比数列的$n$项和公式}}
+
+\begin{center}
+    \begin{math}
+        \textbf{S}_n =
+        \begin{cases}
+            \frac{a_1(1-a^n)}{1-q} = \frac{a_1 - a_{n}q}{1-q} ~~(q \ne 1) \\
+            na_1 ~~(n > m)
+        \end{cases}
+    \end{math}
+\end{center}
+
+\leftline{\textbf{等比数列的性质式}}
+
+\begin{align*}
+    & \text{(1) 若} m+n = p+q \text{，则} a_m \cdot a_n = a_p \cdot a_q \\
+    & \text{(2)~} 2m = p+q \text{，则} 2a_m = a_p \cdot a_q \\
+    & \text{(3)~} \frac{a_n}{a_m} = q^{n-m} ~~(n>m)
+\end{align*}
+
+\section{{\large \textbf{排列组合}}}
+
+\leftline{\textbf{排列数公式}}
+\begin{equation*}
+    \textbf{A}_{n}^{m} = n(n-1)(n-2)\cdots{}(n-m+1)~(n, m \in \mathbb{N}^{*}~\text{且}m \le n)
+\end{equation*}
+
+\leftline{\textbf{阶乘}}
+\begin{equation*}
+    \textbf{A}_{n}^{n} = n! = n(n-1)(n-2) \cdot \cdots{} \cdot 2 \cdot 1
+\end{equation*}
+
+\leftline{\textbf{排列数阶乘公式}}
+\begin{equation*}
+    \textbf{A}_n^{m} = \frac{n!}{(n-m)!}
+\end{equation*}
+
+\leftline{\textbf{组合数公式}}
+\begin{equation*}
+    \textbf{C}_{n}^m = \frac{\textbf{A}_n^{m}}{\textbf{A}_m^{m}} = \frac{n(n-1)(n-2) \cdot \cdots{} \cdot (n-m+1)}{m!}~(n,m \in \mathbb{N}^* \text{且} m \le n)
+\end{equation*}
+
+\leftline{\textbf{组合数阶乘公式}}
+\begin{equation*}
+    \textbf{C}_{n}^m = \frac{\textbf{A}_n^{m}}{\textbf{A}_m^{m}} = \frac{n!}{m! \cdot (n-m)!}~(n,m \in \mathbb{N}^* \text{且} m \le n)
+\end{equation*}
+
+\leftline{\textbf{组合数的两个性质}}
+\begin{equation*}
+    \textbf{C}_n^{m} = \textbf{C}_{n}^{n-m};~~\textbf{C}_{n+1}^{m} = \textbf{C}_n^{m} + \textbf{C}_n^{m-1}~(\textbf{C}_n^{0} = 1)
+\end{equation*}
+
+\end{document}
