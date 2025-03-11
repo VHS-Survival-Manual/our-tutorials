@@ -4,6 +4,12 @@
 \usepackage{geometry}
 \geometry{scale=0.80}
 \usepackage{amsmath, amssymb}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true, linkcolor=black,
+    filecolor=blue, urlcolor=black,
+    citecolor=green
+}
 \pagestyle{empty}
 
 \title{}
@@ -15,12 +21,12 @@
 % \maketitle
 
 \begin{center}
-    \textbf{\LARGE 中职数学速记手册}
+    \textbf{\LARGE 中职数学公式速记手册}
     \vspace{5pt}
 \end{center}
 \hrule height 1pt
 
-\section{{\large \textbf{集合与逻辑}}}
+\section{{\large \textbf{集合}}}
 
 \leftline{\textbf{交集的性质}}
 \begin{align*}
@@ -42,6 +48,17 @@
     & \complement_{U}\oslash = U & \complement_{U}(\complement_{U}A) = A
 \end{align*}
 
+% ------
+\newpage
+\section{{\large \textbf{不等式}}}
+
+\leftline{\textbf{重要性质}}
+
+\begin{align*}
+    & \text{(1) 对称性：} a > b \Leftrightarrow b < a \\
+    & \text{(2) 传递性：} a>b,b>c \Rightarrow a>c \text{（或} a<b,b<c \Rightarrow a<c~\text{）} \\
+    & \text{(3) 基本性质：} 
+\end{align*}
 \section{{\large \textbf{数列}}}
 
 \leftline{\textbf{数列的前$n$项和}}
@@ -100,6 +117,102 @@
     & \text{(3)~} \frac{a_n}{a_m} = q^{n-m} ~~(n>m)
 \end{align*}
 
+% ------
+
+\section{{\large \textbf{函数}}}
+
+% ------
+
+\section{{\large \textbf{指数函数与对数函数}}}
+
+% ------
+
+\section{{\large \textbf{三角函数}}}
+
+\leftline{\textbf{同角基本关系式}}
+
+\begin{align*}
+    & \text{(1) } \sin^2{\alpha} + \cos^2{\alpha} = 1 \\
+    & \text{(2) } \tan{\alpha} = \frac{\sin{\alpha}}{\cos{\alpha}} ~~(\alpha \ne k\pi+\frac{\pi}{2},~k\in{}\mathbb{Z})
+\end{align*}
+
+\leftline{\textbf{正弦函数的合角公式}}
+
+\begin{align*}
+    & \sin{\alpha + \beta} = \sin{\alpha}\cos{\beta} + \cos{\beta}\sin{\alpha} \\
+    & \sin{\alpha - \beta} = \sin{\alpha}\cos{\beta} - \cos{\beta}\sin{\alpha}
+\end{align*}
+
+\leftline{\textbf{余弦函数的合角公式}}
+
+\begin{align*}
+    & \cos{\alpha + \beta} = \sin{\alpha}\sin{\beta} - \cos{\beta}\cos{\alpha} \\
+    & \cos{\alpha - \beta} = \sin{\alpha}\sin{\beta} + \cos{\beta}\cos{\alpha}
+\end{align*}
+
+\leftline{\textbf{正切函数的合角公式}}
+
+\begin{align*}
+    & \tan{\alpha + \beta} = \frac{\tan{\alpha} + \tan{\beta}}{1-\tan{\alpha}\tan{\beta}} \\
+    & \tan{\alpha - \beta} = \frac{\tan{\alpha} - \tan{\beta}}{1+\tan{\alpha}\tan{\beta}}
+\end{align*
+}
+
+\leftline{\textbf{倍角公式}}
+
+\begin{align*}
+    & \sin{2 \alpha} = 2\sin{\alpha}\cos{\beta} \\
+    & n\cos{2 \alpha} = \cos^2{\alpha} - \sin^2{\beta} = 2\cos^2{\alpha} - 1 = 1 - 2\sin^2{\alpha} \\
+    & \tan{2 \alpha} = \frac{2 \tan{\alpha}}{1 - \tan^2{\alpha}}
+\end{align*}
+% ------
+
+\section{{\large \textbf{直线与圆的方程}}}
+
+% \leftline{\textbf{}}
+
+% ------
+
+\section{{\large \textbf{命题与充分、必要条件}}}
+
+\leftline{\textbf{命题}}
+
+一般地，把可以判断真假的陈述句叫做\textbf{命题}
+
+\leftline{\textbf{复合命题的形式}}
+
+\begin{itemize}
+    \item $p \vee q$ （记作 $p$ 或 $q$）
+    \item $p \wedge q$ （记作 $p$ 且 $q$）
+    \item $\neg{}p$ （记作 非$p$）
+\end{itemize}
+
+\leftline{\textbf{全称量词}}
+
+全称量词的命题形式：
+\begin{equation*}
+    \forall x \in D,~P(x)
+\end{equation*}
+
+全称量词的否定形式：
+\begin{equation*}
+    \neg(\forall x,P(x)) \equiv \exists{}x, \neg P(x)
+\end{equation*}
+
+\leftline{\textbf{存在量词}}
+
+存在量词的命题形式：
+\begin{equation*}
+    \exists{}x \in D,~P(x)
+\end{equation*}
+
+存在量词的否定形式：
+\begin{equation*}
+    \neg(\exists x,P(x)) \equiv \forall{}x, \neg P(x)
+\end{equation*}
+
+% ------
+
 \section{{\large \textbf{排列组合}}}
 
 \leftline{\textbf{排列数公式}}
@@ -124,12 +237,18 @@
 
 \leftline{\textbf{组合数阶乘公式}}
 \begin{equation*}
-    \textbf{C}_{n}^m = \frac{\textbf{A}_n^{m}}{\textbf{A}_m^{m}} = \frac{n!}{m! \cdot (n-m)!}~(n,m \in \mathbb{N}^* \text{且} m \le n)
+    \textbf{C}_{n}^m = \frac{\textbf{A}_n^{m}}{\textbf{A}_n^{n}} = \frac{n!}{n! \cdot (n-m)!}~(n,m \in \mathbb{N}^* \text{且} m \le n)
 \end{equation*}
 
 \leftline{\textbf{组合数的两个性质}}
 \begin{equation*}
     \textbf{C}_n^{m} = \textbf{C}_{n}^{n-m};~~\textbf{C}_{n+1}^{m} = \textbf{C}_n^{m} + \textbf{C}_n^{m-1}~(\textbf{C}_n^{0} = 1)
 \end{equation*}
+
+\vspace{5pt}
+\hrule height 1pt
+\begin{center}
+    \textbf{\href{https://github.com/VHS-Survival-Manual/}{VHSS Manual}}
+\end{center}
 
 \end{document}
